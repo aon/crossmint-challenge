@@ -18,8 +18,6 @@ async function main() {
 
   Configuration.candidateId = candidateId.candidateId as string
 
-  console.log(Configuration)
-
   while (true) {
     await startPrompt()
   }
