@@ -42,7 +42,7 @@ export class Map {
 
     for (let row = 0; row < this.map.length; row++) {
       for (let column = 0; column < this.map[0].length; column++) {
-        const cell = this.map[row][column]
+        const cell = this.get(row, column)
         if (cell !== null) {
           nonEmpty.push({
             row,
@@ -75,8 +75,8 @@ export class Map {
 
     for (let row = 0; row < this.map.length; row++) {
       for (let column = 0; column < this.map[0].length; column++) {
-        const thisCell = this.map[row][column]
-        const otherCell = other.map[row][column]
+        const thisCell = this.get(row, column)
+        const otherCell = other.get(row, column)
         if (thisCell?.type !== otherCell?.type) {
           diff.push({
             row,
