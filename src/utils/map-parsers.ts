@@ -2,28 +2,27 @@ import { type getGoalMap } from "../api/goal-map"
 import { type getMap } from "../api/map"
 import { Map } from "../astral-objects/map"
 
-export const parseMap = (map: Awaited<ReturnType<typeof getMap>>): Map => {
+export const parseOwnMap = (map: Awaited<ReturnType<typeof getMap>>): Map => {
   return new Map(
     map.map.content.map((row) =>
       row.map((cell) => {
-        if (cell === null) {
-          return null
-        } else if (cell.type === 0) {
-          return {
-            type: "polyanet",
-          }
-        } else if (cell.type === 1) {
-          return {
-            type: "soloon",
-            color: cell.color,
-          }
-        } else if (cell.type === 2) {
-          return {
-            type: "cometh",
-            direction: cell.direction,
-          }
-        } else {
-          throw new Error("Invalid cell")
+        switch (cell?.type) {
+          case undefined:
+            return null
+          case 0:
+            return {
+              type: "polyanet",
+            }
+          case 1:
+            return {
+              type: "soloon",
+              color: cell.color,
+            }
+          case 2:
+            return {
+              type: "cometh",
+              direction: cell.direction,
+            }
         }
       }),
     ),
