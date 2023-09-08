@@ -1,12 +1,13 @@
+import { AxiosError } from "axios"
 import cliProgress from "cli-progress"
 
 import { sleep } from "./sleep"
 
 export const batchRequests = async <T>(
   requests: (() => Promise<T>)[],
-  waitTimeMs: number,
   logText: string,
-  retries = 2,
+  waitTimeMs = 200,
+  retries = 10,
 ): Promise<T[]> => {
   console.log()
   const bar = new cliProgress.SingleBar(
@@ -27,17 +28,21 @@ export const batchRequests = async <T>(
     while (true) {
       try {
         results.push(await request())
-        await sleep(expWaitTimeMs)
         break
-      } catch (e) {
-        if (retriesIndex === retries) {
-          throw e
+      } catch (err) {
+        if (err instanceof AxiosError && err.response?.status === 429) {
+          if (retriesIndex === retries) {
+            throw err
+          }
+          await sleep(expWaitTimeMs)
+          expWaitTimeMs = waitTimeMs * 2 ** retriesIndex
+          retriesIndex++
+          continue
         }
-        expWaitTimeMs = waitTimeMs * 2 ** retriesIndex
-        retriesIndex++
+
+        throw err
       }
     }
-
     bar.increment()
   }
 
