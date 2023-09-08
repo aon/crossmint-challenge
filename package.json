@@ -8,6 +8,7 @@
     "lint": "eslint --ext  .ts,.js,.cjs,.mjs .",
     "typecheck": "tsc --noEmit"
   },
+  "packageManager": "pnpm@8.6.1",
   "dependencies": {
     "@t3-oss/env-core": "^0.6.1",
     "@types/cli-progress": "^3.11.2",
