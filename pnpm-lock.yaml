@@ -26,14 +26,17 @@ dependencies:
 
 devDependencies:
   '@trivago/prettier-plugin-sort-imports':
-    specifier: ^4.1.1
-    version: 4.2.0(prettier@2.8.8)
+    specifier: 4.1.1
+    version: 4.1.1(prettier@2.8.8)
   '@types/eslint':
     specifier: ^8.44.2
     version: 8.44.2
   '@types/node':
     specifier: ^18.16.0
     version: 18.16.0
+  '@types/prettier':
+    specifier: ^2.7.3
+    version: 2.7.3
   '@types/prompts':
     specifier: ^2.4.4
     version: 2.4.4
@@ -295,11 +298,11 @@ packages:
       zod: 3.22.2
     dev: false
 
-  /@trivago/prettier-plugin-sort-imports@4.2.0(prettier@2.8.8):
-    resolution: {integrity: sha512-YBepjbt+ZNBVmN3ev1amQH3lWCmHyt5qTbLCp/syXJRu/Kw2koXh44qayB1gMRxcL/gV8egmjN5xWSrYyfUtyw==}
+  /@trivago/prettier-plugin-sort-imports@4.1.1(prettier@2.8.8):
+    resolution: {integrity: sha512-dQ2r2uzNr1x6pJsuh/8x0IRA3CBUB+pWEW3J/7N98axqt7SQSm+2fy0FLNXvXGg77xEDC7KHxJlHfLYyi7PDcw==}
     peerDependencies:
       '@vue/compiler-sfc': 3.x
-      prettier: 2.x - 3.x
+      prettier: 2.x
     peerDependenciesMeta:
       '@vue/compiler-sfc':
         optional: true
@@ -354,6 +357,10 @@ packages:
 
   /@types/node@18.16.0:
     resolution: {integrity: sha512-BsAaKhB+7X+H4GnSjGhJG9Qi8Tw+inU9nJDwmD5CgOmBLEI6ArdhikpLX7DjbjDRDTbqZzU2LSQNZg8WGPiSZQ==}
+
+  /@types/prettier@2.7.3:
+    resolution: {integrity: sha512-+68kP9yzs4LMp7VNh8gdzMSPZFL44MLGqiHWvttYJe+6qnuVr4Ek9wSBQoveqY/r+LwjCcU29kNVkidwim+kYA==}
+    dev: true
 
   /@types/prompts@2.4.4:
     resolution: {integrity: sha512-p5N9uoTH76lLvSAaYSZtBCdEXzpOOufsRjnhjVSrZGXikVGHX9+cc9ERtHRV4hvBKHyZb1bg4K+56Bd2TqUn4A==}

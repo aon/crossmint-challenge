@@ -2,7 +2,11 @@
   "name": "crossmint-challenge",
   "version": "1.0.0",
   "scripts": {
-    "start": "ts-node -r dotenv/config src/index.ts"
+    "start": "ts-node -r dotenv/config src/index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --ext  .ts,.js,.cjs,.mjs .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.6.1",
@@ -13,9 +17,10 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@trivago/prettier-plugin-sort-imports": "4.1.1",
     "@types/eslint": "^8.44.2",
     "@types/node": "^18.16.0",
+    "@types/prettier": "^2.7.3",
     "@types/prompts": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
