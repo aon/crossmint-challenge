@@ -15,4 +15,3 @@ export interface Cometh {
   type: "cometh"
   direction: "up" | "down" | "left" | "right"
 }
-
