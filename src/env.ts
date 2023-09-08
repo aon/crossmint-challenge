@@ -8,6 +8,10 @@ export const env = createEnv({
       .url()
       .default("https://challenge.crossmint.io/api"),
     CANDIDATE_ID: z.string().optional(),
+    VERBOSE: z.preprocess(
+      (value: unknown) => value === "true",
+      z.boolean().default(false),
+    ),
   },
   runtimeEnv: process.env,
 })

@@ -5,4 +5,5 @@ export const Configuration = {
     baseUrl: env.MEGAVERSE_API_BASE_URL,
   },
   candidateId: env.CANDIDATE_ID,
+  verbose: env.VERBOSE,
 }
